@@ -1,0 +1,60 @@
+{% extends "layout.html" %} 
+
+{% block content %}
+
+<div class="container">
+    <h1>เกี่ยวกับเว็บแอปพลิเคชันแปลภาษามือไทย</h1>
+    <div class="howto">
+        <h3>วิธีการใช้งาน</h3>
+        <ol class="list-howto">
+            <li>ตั้งกล้องของคุณให้ตรงโดยให้เห็นสัดส่วนของใบหน้า ลำตัว แขน และมืออย่างชัดเจน</li>
+            <li>ทำท่าทางภาษามือที่คุณต้องการแปลอย่างช้า ๆ เนื่องจากระบบอาจจะประมวลผลได้ไม่แม่นยำ</li>
+            <li>รอระบบประมวลผลประมาณ 6 วินาที เพื่อแสดงผลลัพธ์</li>
+            <li>ผลลัพธ์ที่ได้จะแสดงเป็นข้อความ</li>
+        </ol>
+    </div>
+
+    <div class="creator">
+        <h3>ผู้จัดทำเว็บแอปพลิเคชัน</h3>
+
+        <!-- creator 1 -->
+        <div class="card mb-3" style="max-width: 768px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="../static/creator1.jpg" class="img-fluid rounded-start" alt="creator 1">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">ผู้จัดทำ 1</h5>
+                  <p class="card-text">นางสาววรรษิดา เกตะวันดี</p>
+                  <p class="card-text">รหัสนักศึกษา 623020491-1</p>
+                  <p class="card-text">นักศึกษาชั้นปีที่ 4 สาขาวิทยาการคอมพิวเตอร์ </p>
+                  <p class="card-text">วิทยาลัยการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น</p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- creator 2 -->
+        <div class="card mb-3" style="max-width: 768px;">
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img src="../static/creator2.jpg" class="img-fluid rounded-start" alt="creator 2">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title">ผู้จัดทำ 2</h5>
+                <p class="card-text">นางสาวอารยา หาระคุโน</p>
+                <p class="card-text">รหัสนักศึกษา 623020508-0</p>
+                <p class="card-text">นักศึกษาชั้นปีที่ 4 สาขาวิทยาการคอมพิวเตอร์ </p>
+                <p class="card-text">วิทยาลัยการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <br>
+    </div>
+</div>
+
+{% endblock %}

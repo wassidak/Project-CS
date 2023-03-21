@@ -1,0 +1,74 @@
+body {
+    font-family: 'Bai Jamjuree', sans-serif;
+    color: black;
+}
+
+.navbar-brand {
+    margin: 0 20px;
+}
+
+.container {
+    margin-top: 40px !important;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+
+.camera img {
+    width: 60%;
+}
+
+/* .img-fluid {
+    width: 100%;
+} */
+
+.camera {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* .camera img {
+    box-shadow: 0px 0px 5px 5px lightgray;
+} */
+
+.justify-content-center {
+    justify-content: right !important;
+}
+
+a.nav-link {
+    margin: 0 16px;
+}
+
+.list-howto {
+    font-size: 18px;
+}
+
+h3 {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.creator .card-text {
+    margin: 4px 0;
+    font-size: 18px;
+}
+
+.creator h5.card-title {
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.creator .row {
+    align-items: center;
+}
+
+.howto {
+    margin-bottom: 24px;
+}

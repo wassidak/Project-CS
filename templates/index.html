@@ -1,0 +1,12 @@
+{% extends "layout.html" %} 
+
+{% block content %}
+
+<div class="container">
+  <h1>เว็บแอปพลิเคชันแปลภาษามือไทย</h1>
+  <div class="camera">
+    <img src="{{ url_for('video_feed') }}">
+  </div>
+</div>
+
+{% endblock %}
