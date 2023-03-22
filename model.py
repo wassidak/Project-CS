@@ -48,7 +48,7 @@ tb_callback = TensorBoard(log_dir=log_dir)
 # Sequential api
 model = Sequential()
 
-model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(30,258)))
+model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(40,258)))
 model.add(LSTM(128, return_sequences=True, activation='relu'))
 model.add(LSTM(64, return_sequences=False, activation='relu'))
 
