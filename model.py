@@ -2,11 +2,11 @@ import os
 import numpy as np
 
 from sklearn.model_selection import train_test_split
-from tensorflow.keras.utils import to_categorical
+from keras.utils import to_categorical
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense
-from tensorflow.keras.callbacks import TensorBoard
+from keras.models import Sequential
+from keras.layers import LSTM, Dense
+from keras.callbacks import TensorBoard
 
 from sklearn.metrics import multilabel_confusion_matrix, accuracy_score, confusion_matrix, classification_report
 
@@ -36,7 +36,7 @@ X = np.array(sequences)
 y = to_categorical(labels).astype(int)
 
 # แบ่งข้อมูล train 70% : test 30%
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15)
 print()
 print("แบ่งข้อมูล: \n", X_train.shape, X_test.shape, y_train.shape, y_test.shape, "\n")
 
@@ -74,7 +74,7 @@ model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categ
 # เทรนเพื่อนให้ค่า loss ลดลง (น้อยกว่า 0) และให้ค่า accuracy เพิ่มขึ้น (เข้าใกล้ 1)
 # สร้างโฟลเดอร์ Logs ขึ้นมา
 # ไม่ต้องเทรนทุกรอบก็ได้
-model.fit(X_train, y_train, epochs=800, callbacks=[tb_callback])
+model.fit(X_train, y_train, epochs=300, batch_size=200, callbacks=[tb_callback])
 print()
 model.summary()
 
