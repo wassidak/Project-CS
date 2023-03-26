@@ -2,8 +2,6 @@
 import cv2
 import numpy as np
 import mediapipe as mp
-import requests
-import configparser
 
 from PIL import Image, ImageFont, ImageDraw
 from flask import Flask, render_template, Response
