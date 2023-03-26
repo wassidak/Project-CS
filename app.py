@@ -89,14 +89,14 @@ def generate():
                         else:
                             sentence.append(actions[np.argmax(res)])
 
-                if len(sentence) > 3: 
-                    sentence = sentence[-3:]
+                if len(sentence) > 2: 
+                    sentence = sentence[-2:]
 
                     # Viz probabilities
                     #image = prob_viz(res, actions, image, colors)
                     
             #Output Text    
-            cv2.rectangle(image, (0,0), (640, 40), (245, 117, 16), -1) 
+            cv2.rectangle(image, (0,0), (640, 50), (245, 117, 16), -1) 
             #cv2.putText(image, ' '.join(sentence), (3,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
             # show thai lang
@@ -105,7 +105,7 @@ def generate():
             font =  ImageFont.truetype(fontpath,30) #truetype(font,ขนาดของ font)
             img_pil = Image.fromarray(image)
             draw = ImageDraw.Draw(img_pil)
-            text = draw.text((3,0), ' '.join(sentence), font = font, fill=(255,255,255)) 
+            text = draw.text((20,8), ' '.join(sentence), font = font, fill=(255,255,255)) 
             #(3,0) คือระยะห่างของแกน x,y ของข้อความ / fill คือ ใส่สีตัวอักษรแบบ RGB 
 
             image = np.array(img_pil)
