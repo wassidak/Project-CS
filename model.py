@@ -36,7 +36,7 @@ X = np.array(sequences)
 y = to_categorical(labels).astype(int)
 
 # แบ่งข้อมูล train 70% : test 30%
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 print()
 print("แบ่งข้อมูล: \n", X_train.shape, X_test.shape, y_train.shape, y_test.shape, "\n")
 
@@ -48,7 +48,7 @@ tb_callback = TensorBoard(log_dir=log_dir)
 # Sequential api
 model = Sequential()
 
-model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(40,258)))
+model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(30,258)))
 model.add(LSTM(128, return_sequences=True, activation='relu'))
 model.add(LSTM(64, return_sequences=False, activation='relu'))
 
