@@ -71,17 +71,17 @@ def generate():
             keypoints = extract_keypoints(results)
             sequence.insert(0,keypoints)
             #sequence.append(keypoints)
-            sequence = sequence[:40]
+            sequence = sequence[:30]
                     
                     
-            if len(sequence) == 40:
+            if len(sequence) == 30:
                 res = model.predict(np.expand_dims(sequence, axis=0))[0]
                 print(actions[np.argmax(res)])
                 predictions.append(np.argmax(res))
                             
                             
             #3. Viz logic
-                if np.unique(predictions[-40:])[0]==np.argmax(res): 
+                if np.unique(predictions[-30:])[0]==np.argmax(res): 
                     if res[np.argmax(res)] > threshold:   
                         if len(sentence) > 0: 
                             if actions[np.argmax(res)] != sentence[-1]:
