@@ -49,6 +49,7 @@ a.nav-link {
 h3 {
     font-weight: bold;
     margin-bottom: 16px;
+    /* text-align: center; */
 }
 
 .creator .card-text {
@@ -67,6 +68,13 @@ h3 {
 
 .creator .row {
     align-items: center;
+}
+
+.creator .name-creator{
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 .howto {
     margin:24px;
