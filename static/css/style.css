@@ -18,7 +18,7 @@ h1 {
 }
 
 .camera img {
-    width: 60%;
+    width: 50%;
 }
 
 /* .img-fluid {
@@ -68,7 +68,19 @@ h3 {
 .creator .row {
     align-items: center;
 }
-
 .howto {
-    margin-bottom: 24px;
+    margin:24px;
+}
+.c-how{
+    border: solid 1px black;
+    border-radius: 10px;
+    max-width: max-content;
+}
+.boder{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.des{
+    font-size: 18px;
 }
