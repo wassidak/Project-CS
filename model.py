@@ -9,7 +9,6 @@ from keras.layers import LSTM, Dense
 from keras.callbacks import TensorBoard
 
 from sklearn.metrics import multilabel_confusion_matrix, accuracy_score, confusion_matrix, classification_report
-
 from functions import *
 
 ### 6. Preprocess Data and Create Labels and Features
