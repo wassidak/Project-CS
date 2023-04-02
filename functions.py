@@ -112,7 +112,7 @@ def extract_keypoints(results):
 # 4. Setup Folders for Collection
 
 # Path for exported data, numpy arrays
-DATA_PATH = os.path.join('Train_new30word')
+DATA_PATH = os.path.join('Train_30word')
 
 # Actions that we try to detect
 # array ของท่าทางภาษามือ
