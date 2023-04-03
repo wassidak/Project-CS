@@ -44,3 +44,6 @@ confus = confusion_matrix(ytrue, yhat)
 print("confusion matrix : \n", confus, "\n")
 
 print("classification report : \n", classification_report(ytrue, yhat, digits=4), "\n")
+
+#ความแม่นยำของข้อมูลที่ test ไป
+print("accuracy score =", accuracy_score(ytrue, yhat), "\n")
