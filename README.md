@@ -4,7 +4,7 @@
 ### :wrench: เครื่องที่ใช้ในระบบ
   * Visual Studio Code
   * Git
-  * Python
+  * Python, HTML, CSS
   * OpenCV
   * Flask Framework
   
