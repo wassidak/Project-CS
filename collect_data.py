@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import os
-import mediapipe as mp
 
 from functions import *
 
@@ -16,7 +15,7 @@ for action in actions:
             pass
 
 ### 5. Collect Keypoint Values for Training and Testing
-#Training Data *ไม่ต้องรันซ้ำ*
+# *ไม่ต้องรันซ้ำ หากเก็บข้อมูลไว้แล้ว*
 cap = cv2.VideoCapture(0)
 # Set mediapipe model 
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
