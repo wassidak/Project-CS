@@ -1,7 +1,6 @@
 ### 11. Test in Real Time
 import cv2
 import numpy as np
-import mediapipe as mp
 
 from PIL import Image, ImageFont, ImageDraw
 from flask import Flask, render_template, Response
@@ -30,7 +29,6 @@ def prob_viz(res, actions, input_frame, colors):
         #cv2.putText(output_frame, actions[num], (0, 85+num*40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2, cv2.LINE_AA)
 
         # show thai lang
-        
         fontpath = "./BaiJamjuree-Regular.ttf" 
 
         font =  ImageFont.truetype(fontpath,30)
@@ -49,7 +47,7 @@ def generate():
     predictions = []
     threshold = 0.7
 
-    #เปิดกล้องด้วย open cv
+    #เปิดกล้องด้วย opencv
     cap = cv2.VideoCapture(0)
 
     # Set mediapipe model 
@@ -72,14 +70,12 @@ def generate():
             sequence.insert(0,keypoints)
             #sequence.append(keypoints)
             sequence = sequence[:30]
-                    
-                    
+                                        
             if len(sequence) == 30:
                 res = model.predict(np.expand_dims(sequence, axis=0))[0]
                 print(actions[np.argmax(res)])
                 predictions.append(np.argmax(res))
-                            
-                            
+                                                        
             #3. Viz logic
                 if np.unique(predictions[-30:])[0]==np.argmax(res): 
                     if res[np.argmax(res)] > threshold:   
@@ -97,7 +93,6 @@ def generate():
                     
             #Output Text    
             cv2.rectangle(image, (0,0), (640, 50), (245, 117, 16), -1) 
-            #cv2.putText(image, ' '.join(sentence), (3,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
             # show thai lang
             fontpath = "./BaiJamjuree-Regular.ttf" 
@@ -106,19 +101,14 @@ def generate():
             img_pil = Image.fromarray(image)
             draw = ImageDraw.Draw(img_pil)
             text = draw.text((20,8), ' '.join(sentence), font = font, fill=(255,255,255)) 
-            #(3,0) คือระยะห่างของแกน x,y ของข้อความ / fill คือ ใส่สีตัวอักษรแบบ RGB 
+            #(20,8) คือระยะห่างของแกน x,y ของข้อความ / fill คือ ใส่สีตัวอักษรแบบ RGB 
 
             image = np.array(img_pil)
-                    
-            # Show to screen # ถ้าขึ้นเว็บไม่ต้องโชว์
-            # cv2.imshow('OpenCV Feed', image)
 
             frame2 = cv2.imencode('.jpg', image)[1].tobytes()
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
 
             # Break gracefully
-            # if cv2.waitKey(10) & 0xFF == ord('q'):
-            #     break
             key = cv2.waitKey(20)
             if key == 27:
                 break
@@ -140,4 +130,3 @@ def about():
 
 if __name__=="__main__":
     app.run(debug=True)
-    # app.run(host="0.0.0.0", port=5000)
