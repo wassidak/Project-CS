@@ -31,7 +31,6 @@ for action in actions:
 # print(np.array(labels).shape)
 
 X = np.array(sequences)
-# print(X.shape)
 y = to_categorical(labels).astype(int)
 
 # แบ่งข้อมูล train 80% : test 20%
@@ -57,8 +56,7 @@ model.add(Dense(32, activation='relu'))
 model.add(Dense(actions.shape[0], activation='softmax'))
 
 #64,128,32 คือจำนวนโหนดของโมเดล
-#input_shape=(30,258) >> 30 คือเฟรมรูป 258 คือจำนวน keypoint (จุดบนมือ+หน้า)
-
+#input_shape=(30,1662) >> 30 คือเฟรมรูป 1662 คือจำนวน keypoint (จุดบนมือ+หน้า+ท่าทาง)
 
 #จำนวนคำ/ประโยคที่เราเทรนเข้าไป
 print("จำนวนประโยคทั้งหมด = ", actions.shape[0])
@@ -69,15 +67,15 @@ print(action[np.argmax(res)], "\n")
 model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 
 # Train model
-# epochs=800 คือจำนวนรอบในการเทรนโมเดล
-# เทรนเพื่อนให้ค่า loss ลดลง (น้อยกว่า 0) และให้ค่า accuracy เพิ่มขึ้น (เข้าใกล้ 1)
-# สร้างโฟลเดอร์ Logs ขึ้นมา
-# ไม่ต้องเทรนทุกรอบก็ได้
+# epochs=500 คือจำนวนรอบในการรันโมเดล
+# เทรนเพื่อให้ค่า loss ลดลง (น้อยกว่า 0) และให้ค่า accuracy เพิ่มขึ้น (เข้าใกล้ 1)
+# เมื่อรันเสร็จจะสร้างโฟลเดอร์ Logs ขึ้นมา
+# ไม่จำเป้นต้องเทรนทุกรอบก็ได้
 model.fit(X_train, y_train, epochs=500, batch_size=200, callbacks=[tb_callback])
 print()
 model.summary()
 
-# เขียนไฟล์ .json
+# สร้างไฟล์ .json
 model_json = model.to_json()
 with open("model.json", "w") as json_file:
     json_file.write(model_json) 
